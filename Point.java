@@ -10,6 +10,10 @@ public class Point {
 		this.y = y;
 	}
 
+	public Point() {
+
+	}
+
 	public double getX() {
 		return x;
 	}
@@ -30,6 +34,5 @@ public class Point {
 	public String toString() {
 		return "Point [x=" + x + ", y=" + y + "]";
 	}
-	
-	
+
 }

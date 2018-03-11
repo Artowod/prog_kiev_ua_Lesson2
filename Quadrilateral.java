@@ -5,10 +5,6 @@ public class Quadrilateral extends Shape {
 	private Point secondPoint;
 	private Point thirdPoint;
 	private Point fourthPoint;
-	private double firstSideLenght;
-	private double secondSideLenght;
-	private double thirdSideLenght;
-	private double fourthSideLenght;
 
 	public Quadrilateral(Point firstPoint, Point secondPoint, Point thirdPoint, Point fourthPoint) {
 		super();
@@ -16,30 +12,76 @@ public class Quadrilateral extends Shape {
 		this.secondPoint = secondPoint;
 		this.thirdPoint = thirdPoint;
 		this.fourthPoint = fourthPoint;
-		calculateQuadrilateralSidesLenght();
 	}
 
-	private void calculateQuadrilateralSidesLenght() {
-		// firstSide = sqrt(sqr(x2-x1)+(sqr(y2-y1)));
+	public Quadrilateral() {
+
+	}
+
+	public Point getFirstPoint() {
+		return firstPoint;
+	}
+
+	public void setFirstPoint(Point firstPoint) {
+		this.firstPoint = firstPoint;
+	}
+
+	public Point getSecondPoint() {
+		return secondPoint;
+	}
+
+	public void setSecondPoint(Point secondPoint) {
+		this.secondPoint = secondPoint;
+	}
+
+	public Point getThirdPoint() {
+		return thirdPoint;
+	}
+
+	public void setThirdPoint(Point thirdPoint) {
+		this.thirdPoint = thirdPoint;
+	}
+
+	public Point getFourthPoint() {
+		return fourthPoint;
+	}
+
+	public void setFourthPoint(Point fourthPoint) {
+		this.fourthPoint = fourthPoint;
+	}
+
+	private double calculateFirstSideLenght() {
+		double firstSideLenght;
 		firstSideLenght = Math.sqrt(Math.pow((secondPoint.getX() - firstPoint.getX()), 2)
 				+ Math.pow((secondPoint.getY() - firstPoint.getY()), 2));
+		return firstSideLenght;
+	}
 
-		// secondSide = sqrt(sqr(x3-x2)+(sqr(y3-y2)));
+	private double calculateSecondSideLenght() {
+		double secondSideLenght;
 		secondSideLenght = Math.sqrt(Math.pow((thirdPoint.getX() - secondPoint.getX()), 2)
 				+ Math.pow((thirdPoint.getY() - secondPoint.getY()), 2));
+		return secondSideLenght;
+	}
 
-		// thirdSide = sqrt(sqr(x4-x3)+(sqr(y4-y3)));
+	private double calculateThirdSideLenght() {
+		double thirdSideLenght;
 		thirdSideLenght = Math.sqrt(Math.pow((fourthPoint.getX() - thirdPoint.getX()), 2)
 				+ Math.pow((fourthPoint.getY() - thirdPoint.getY()), 2));
+		return thirdSideLenght;
+	}
 
-		// fourthSide = sqrt(sqr(x1-x4)+(sqr(y1-y4)));
-		thirdSideLenght = Math.sqrt(Math.pow((firstPoint.getX() - fourthPoint.getX()), 2)
+	private double calculateFourthSideLenght() {
+		double fourthSideLenght;
+		fourthSideLenght = Math.sqrt(Math.pow((firstPoint.getX() - fourthPoint.getX()), 2)
 				+ Math.pow((firstPoint.getY() - fourthPoint.getY()), 2));
+		return fourthSideLenght;
 	}
 
 	@Override
 	public double getPerimetr() {
-		double perimetr = firstSideLenght + secondSideLenght + thirdSideLenght + fourthSideLenght;
+		double perimetr = calculateFirstSideLenght() + calculateSecondSideLenght() + calculateThirdSideLenght()
+				+ calculateFourthSideLenght();
 		return perimetr;
 	}
 
@@ -51,11 +93,8 @@ public class Quadrilateral extends Shape {
 	@Override
 	public String toString() {
 		return "Quadrilateral [firstPoint=" + firstPoint + ", secondPoint=" + secondPoint + ", thirdPoint=" + thirdPoint
-				+ ", fourthPoint=" + fourthPoint + ", firstSideLenght=" + firstSideLenght + ", secondSideLenght="
-				+ secondSideLenght + ", thirdSideLenght=" + thirdSideLenght + ", fourthSideLenght=" + fourthSideLenght
-				+ ", getPerimetr()=" + getPerimetr() + ", getArea()=" + getArea() + "]";
+				+ ", fourthPoint=" + fourthPoint + ", getPerimetr()=" + getPerimetr() + ", getArea()=" + getArea()
+				+ "]";
 	}
-	
-	
 
 }

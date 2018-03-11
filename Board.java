@@ -14,6 +14,10 @@ public class Board {
 	}
 
 	public boolean putFigure(Shape figure, int sectionNumberWhereToPut) {
+		if (sectionNumberWhereToPut < 0 || sectionNumberWhereToPut > 3) {
+			System.out.println("\n----!!---Вы ввели неверный номер ячейки.---!!----");
+			return false;
+		}
 		if (figures[sectionNumberWhereToPut] == null) {
 			figures[sectionNumberWhereToPut] = figure;
 			return true;
@@ -24,6 +28,10 @@ public class Board {
 	}
 
 	public boolean deleteFigure(int sectionNumberWhereToPut) {
+		if (sectionNumberWhereToPut < 0 || sectionNumberWhereToPut > 3) {
+			System.out.println("\n----!!---Вы ввели неверный номер ячейки.---!!----");
+			return false;
+		}
 		if (figures[sectionNumberWhereToPut] != null) {
 			figures[sectionNumberWhereToPut] = null;
 			return true;

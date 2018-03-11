@@ -3,36 +3,56 @@ package ua.prog.java.lesson2;
 public class Circle extends Shape {
 	private Point center;
 	private Point pointOnCircle;
-	private double radius;
 
 	public Circle(Point center, Point pointOnCircle) {
 		super();
 		this.center = center;
 		this.pointOnCircle = pointOnCircle;
-		calculateRadiusLength();
 	}
 
-	private void calculateRadiusLength() {
-		// r^2 = (x — h)^2 + (y — k)^2
+	public Circle() {
+
+	}
+
+	public Point getCenter() {
+		return center;
+	}
+
+	public void setCenter(Point center) {
+		this.center = center;
+	}
+
+	public Point getPointOnCircle() {
+		return pointOnCircle;
+	}
+
+	public void setPointOnCircle(Point pointOnCircle) {
+		this.pointOnCircle = pointOnCircle;
+	}
+
+	private double calculateRadiusLength() {
+		double radius;
 		radius = Math.sqrt(Math.pow((center.getX() - pointOnCircle.getX()), 2)
 				+ Math.pow((center.getY() - pointOnCircle.getY()), 2));
+		return radius;
 	}
 
 	@Override
 	public double getPerimetr() {
-		double perimetr = 2 * Math.PI * radius;
+		double perimetr = 2 * Math.PI * calculateRadiusLength();
 		return perimetr;
 	}
 
 	@Override
 	public double getArea() {
-		double area = Math.PI * Math.pow(radius, 2);
+		double area = Math.PI * Math.pow(calculateRadiusLength(), 2);
 		return area;
 	}
 
 	@Override
 	public String toString() {
-		return "Circle [center=" + center + ", pointOnCircle=" + pointOnCircle + ", radius=" + radius
-				+ ", getPerimetr()=" + getPerimetr() + ", getArea()=" + getArea() + "]";
+		return "Circle [center=" + center + ", pointOnCircle=" + pointOnCircle + ", getPerimetr()=" + getPerimetr()
+				+ ", getArea()=" + getArea() + "]";
 	}
+
 }

@@ -35,7 +35,7 @@ public class Main {
 
 		Board newBoard = new Board();
 		newBoard.putFigure(triangleInstance, 0);
-		newBoard.putFigure(circleInstance, 1);
+		newBoard.putFigure(circleInstance, -1);
 		newBoard.putFigure(quadrilateralInstance, 2);
 		newBoard.putFigure(circleInstance, 3);
 
